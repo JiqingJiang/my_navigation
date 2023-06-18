@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>我的个人导航主页</title>
+    <style>
+      body {
+        background-image: url("桌面壁纸2.jpg");
+        background-size: cover;
+        font-family: Arial, sans-serif;
+      }
+      .column {
+        float: left;
+        width: 25%;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+      .column h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #333;
+        padding: 10px;
+        margin: 0;
+        text-align: center;
+      }
+      .column ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .column li {
+        margin-bottom: 10px;
+      }
+      .column a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .column a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="column">
+      <h2>常用网页</h2>
+      <ul>
+        <li>
+          <a
+            href="https://blog.csdn.net/yuan2019035055/category_11466020.html?spm=1001.2014.3001.5515"
+            >100天精通Python从入门到就业</a
+          >
+        </li>
+        <li><a href="https://github.com/">GitHub</a></li>
+        <li>
+          <a
+            href="https://www.bilibili.com/video/BV1Y84y1L7Nn/?p=49&spm_id_from=333.1007.top_right_bar_window_history.content.click&vd_source=f4bc1addd58ccd3c73dac4c86bac440e"
+            >JavaScript</a
+          >
+        </li>
+        <li><a href="https://www.csdn.net">CSDN</a></li>
+        <li>
+          <a
+            href="chrome-extension://dhoenijjpgpeimemopealfcbiecgceod/chat/index.html"
+            >Chat - Sider: ChatGPT Sidebar</a
+          >
+        </li>
+        <li><a href="https://xiaolincoding.com">小林coding</a></li>
+        <li><a href="https://csdiy.wiki">CS自学指南</a></li>
+        <li><a href="https://www.runoob.com">菜鸟教程</a></li>
+        <li>
+          <a href="http://localhost:3000">localhost: </a
+          ><input type="text" class="local" />
+        </li>
+        <li>
+          <a
+            href="https://mail.qq.com/cgi-bin/frame_html?sid=wGH8g41my6Iq91Ux&r=11bd21723e3ee7548d231ab6d130fa3a&lang=zh"
+            >QQ邮箱</a
+          >
+        </li>
+        <li><a href="https://www.bilibili.com/">bilibili</a></li>
+        <li><a href="https://www.aliyundrive.com/drive/">阿里云盘</a></li>
+        <li><a href="https://music.163.com/?from=infinity">网易云音乐</a></li>
+        <li><a href="https://www.douyin.com/">抖音</a></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>每日学习</h2>
+      <ul>
+        <li><a href="https://wiki.ssslab.cn/login">SSSLAB WIKI</a></li>
+        <li><a href="https://www.icourse163.org">中国大学MOOC</a></li>
+        <li>
+          <a href="https://docs.qq.com/doc/DUENLY2hZR2VqdURp"
+            >资源教室 S-RCM数据分析系统(一阶段)</a
+          >
+        </li>
+        <li><a href="https://www.acwing.com">练习编程</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>每日任务</h2>
+      <ul>
+        <li>花20分钟写前一天的复盘</li>
+        <li>在acwing做一道编程题</li>
+        <li>阅读EDA书籍</li>
+        <li>学习数值计算</li>
+        <li>阅读并行计算书籍</li>
+        <li>阅读C++PrimerPlus</li>
+        <li></li>
+        <li>每周天及时在WiKi提交作业</li>
+        <li>学习Express</li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>计划安排</h2>
+      <ul>
+        <li>新三国电视剧</li>
+        <li>阅读一本书</li>
+        <li>本月：参加一个技术会议，完成一个开源项目，旅游一次</li>
+        <li>今年：学会一门新语言，找到一份理想工作，做一件有意义的事情</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+    </div>
+    <script>
+      let inputElement = document.querySelector("input.local");
+      // 获取所有的 <a> 元素
+      let aElements = document.querySelectorAll("a");
+      // 为输入框添加事件监听器
+      inputElement.addEventListener("keyup", function (event) {
+        // 获取输入框的值
+        let port = event.target.value;
+        // 遍历所有的 <a> 元素
+        aElements.forEach(function (aElement) {
+          // 获取当前 <a> 元素的 href 属性值
+          let href = aElement.getAttribute("href");
+          // 判断 href 是否以 "localhost:" 开头
+          if (href.startsWith("http://localhost:")) {
+            // 将端口号替换为输入框的值
+            let newHref = href.replace(/:\d+/, ":" + port);
+            // 更新 href 属性值
+            aElement.setAttribute("href", newHref);
+          }
+        });
+      });
+      // 为所有的 <a> 元素添加点击事件监听器
+      aElements.forEach(function (aElement) {
+        aElement.addEventListener("click", function (event) {
+          // 阻止默认行为
+          event.preventDefault();
+          // 获取 href 属性值
+          let href = aElement.getAttribute("href");
+          // 跳转到对应的 localhost 地址
+          window.location.href = href;
+        });
+      });
+    </script>
+  </body>
+</html>
